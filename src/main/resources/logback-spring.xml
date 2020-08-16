@@ -14,7 +14,7 @@
 <configuration debug="false">
     <!-- 定义参数常量，便于后面直接用${name}来获取value值 -->
     <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
-    <property name="LOG_HOME" value="/home/bdc/learnCode/logs" />
+    <property name="LOG_HOME" value="logs" />
     <property name="LOG_FILE" value="learnCode"/>
     <!--
         日志输出格式：%d表示日期时间，%thread表示线程名，%-5level：级别从左显示5个字符宽度
@@ -40,11 +40,11 @@
             <!-- 当天之前的每天生成的日志文件的路径 -->
             <!--
             滚动时产生的文件的存放位置及文件名称 %d{yyyy-MM-dd}：按天进行日志滚动
-            %i：当文件大小超过maxFileSize时，按照i进行文件滚动
+            %i：当文件大小超过maxFileSize时
             -->
-            <FileNamePattern>${LOG_HOME}/${LOG_FILE}-%d{yyyy-MM-dd}-%i.log</FileNamePattern>
+            <FileNamePattern>${LOG_HOME}/${LOG_FILE}-%d{yyyy-MM-dd}.log</FileNamePattern>
             <!--单个日志文件最大的大小-->
-            <maxFileSize>20MB</maxFileSize>
+            <!--<maxFileSize>20MB</maxFileSize>-->
             <!--日志文件保留天数-->
             <maxHistory>15</maxHistory>
             <!--所有的日志文件最大容量，超过就会删除旧的日志-->
