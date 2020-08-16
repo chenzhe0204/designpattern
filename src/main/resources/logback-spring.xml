@@ -36,15 +36,20 @@
         <file>${LOG_HOME}/${LOG_FILE}.log</file>
 
         <!-- 设置基于时间(每天)的滚动策略，也就是将日志内容按照日期来写入到相应的文件中-->
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <!--
+        ch.qos.logback.core.rolling.TimeBasedRollingPolicy不支持设置单个文件大小限制和i%设置
+        因而要使用
+        ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy
+        -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!-- 当天之前的每天生成的日志文件的路径 -->
             <!--
             滚动时产生的文件的存放位置及文件名称 %d{yyyy-MM-dd}：按天进行日志滚动
             %i：当文件大小超过maxFileSize时
             -->
-            <FileNamePattern>${LOG_HOME}/${LOG_FILE}-%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>${LOG_HOME}/${LOG_FILE}-%d{yyyy-MM-dd}-%i.log</FileNamePattern>
             <!--单个日志文件最大的大小-->
-            <!--<maxFileSize>20MB</maxFileSize>-->
+            <maxFileSize>20MB</maxFileSize>
             <!--日志文件保留天数-->
             <maxHistory>15</maxHistory>
             <!--所有的日志文件最大容量，超过就会删除旧的日志-->

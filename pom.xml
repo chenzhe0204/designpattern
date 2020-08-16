@@ -39,6 +39,13 @@
             <artifactId>validation-api</artifactId>
         </dependency>
 
+        <!-- 解决@Notback @valid等注解失效 -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.2.2.Final</version>
+        </dependency>
+
     </dependencies>
 
     <!-- maven多环境配置 -->

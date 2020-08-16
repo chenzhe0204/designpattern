@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.math.BigDecimal;
 
 /**
@@ -28,7 +29,7 @@ public class ArithmeticController {
     private final ArithmeticService arithmeticService;
 
     @PostMapping("/arithmetic")
-    public BigDecimal getResult(@RequestBody @Validated ArithmeticDTO arithmeticDTO) throws ArithmeticException {
+    public BigDecimal getResult(@Validated @RequestBody ArithmeticDTO arithmeticDTO) throws ArithmeticException {
         return arithmeticService.getResult(arithmeticDTO);
     }
 }
