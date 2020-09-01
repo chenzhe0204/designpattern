@@ -5,7 +5,6 @@ import lombok.Data;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 /**
@@ -17,11 +16,11 @@ import java.math.BigDecimal;
 public class StrategyDTO {
 
     /** 优惠类型(0:无优惠/打折 1:满减) */
-    @NotNull(message = "优惠类型不能为空")
+    @NotBlank(message = "优惠类型不能为空")
     private String strategy;
 
     /** 优惠前总额 */
-    @NotNull(message = "金额不能为空")
+    @NotBlank(message = "金额不能为空")
     private BigDecimal money;
 
     /** 折扣 */
